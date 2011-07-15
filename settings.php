@@ -11,6 +11,8 @@ define('APP_MODELS', APP_APPS . 'models/');
 define('APP_CONTROLS', APP_APPS . 'controllers/');
 define('APP_VIEWS', APP_APPS . 'views/');
 
+define('APP_TITLE', 'News Service');
+
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')
 {
 	define('APP_PROTOCOL', 'https');
@@ -26,19 +28,33 @@ if (isset($_SERVER['HTTP_HOST']))
 	define('APP_INCLUDES', APP_URI . 'includes/');
 }
 
-$PATHS = array(APP_LIB, APP_MODELS); 
-foreach ($PATHS as $PATH) 
+$PATHS = array(APP_LIB, APP_MODELS, APP_CONTROLS);
+foreach ($PATHS as $PATH)
 {
 	set_include_path(get_include_path() . PATH_SEPARATOR . $PATH);
 }
 
 error_reporting(E_ALL);
 
-if (!function_exists('__autoload'))
+/**
+ * Custom global functions
+ */
+
+if (!function_exists('fileexists'))
 {
-	function __autoload($className)
+	function fileexists($file)
 	{
-		require_once '';
+		global $PATHS;
+		$found = false;
+		foreach ($PATHS as $path)
+		{
+			if (!$found)
+			{
+				$found = file_exists($path . $file);
+			}
+		}
+		
+		return $found;
 	}
 }
 
@@ -59,5 +75,21 @@ if (!function_exists('vardump'))
 		echo '<pre>';
 		var_dump($mixed);
 		echo '</pre>';
+	}
+}
+
+if (!function_exists('__autoload'))
+{
+	function __autoload($className)
+	{
+		$class = str_replace('_', '/', $className) . '.php';
+		if (fileexists($class))
+		{
+			require_once $class;
+		}
+		else
+		{
+			require_once str_replace('_', '/', $className) . '.class.php';
+		}
 	}
 }

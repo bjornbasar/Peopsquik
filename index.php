@@ -1,7 +1,10 @@
 <?php
 
-include('settings.php');
-include('config.php');
+require 'settings.php';
+
+// set error and exception handlers
+set_error_handler('Handler::errorHandler');
+set_exception_handler('Handler::exceptionHandler');
 
 if (!empty($_SERVER['REDIRECT_MODULE']))
 {
@@ -9,19 +12,27 @@ if (!empty($_SERVER['REDIRECT_MODULE']))
 }
 else
 {
-	$PARAMS = array('main');
+	$PARAMS = array('index');
 }
 
 $module = array_shift($PARAMS);
-$module = explode('_', $module);
+$parameters['module'] = str_replace('_', '/', $module) . '.php';
+$parameters['template'] = str_replace('_', '/', $module) . '.tpl';
 
-printr($module);
-
-if (file_exists(APP_CONTROLS . $module[0] . '.php'))
+if (stripos($module, '.do') !== false)
 {
-	$control = new $module[0]();
+	$parameters['module'] = 'actions/' . str_replace('.do', '.action', $parameters['module']);
+	$parameters['allowdisplay'] = false;
+}
+
+if (file_exists(APP_CONTROLS . $parameters['module']) && (!isset($parameters['body']) || file_exists(APP_VIEWS . @$parameters['body'])))
+{
+	$core = new Core($parameters);
+	
+	$core->display();
 }
 else
 {
-	echo 'Module does not exist';
+	// display the 'module not found' page
+	throw new Exception("Module $module not found");
 }
