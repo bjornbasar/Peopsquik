@@ -41,9 +41,9 @@ else
 
 if (file_exists(APP_CONTROLS . $parameters['module']) && (!isset($parameters['body']) || file_exists(APP_VIEWS . @$parameters['body'])))
 {
-	$OFUFE = new Core_Ofufe($parameters);
+	$PEOPS = new Core_Peopsquik($parameters);
 	
-	$OFUFE->display();
+	$PEOPS->display();
 }
 else
 {
