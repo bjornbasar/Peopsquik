@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-        <title><?php echo APP_TITLE?></title>
-        <base href="<?php echo APP_URI?>">
+        <title>{$TEMPLATE_TITLE}</title>
+        <base href="{$smarty.const.APP_URI}">
     </head>
 	<body>
 
@@ -11,11 +11,11 @@
 
 			<div id="content">
 
-				<?php include 'header.tpl'?>
+				{include file='header.tpl'}
 
 				<div id="main">
 
-				 	<?php include $view['body']?>
+				 	{include file=$body}
 
 				</div><!-- end #main -->
 

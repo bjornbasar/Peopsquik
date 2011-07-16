@@ -10,6 +10,12 @@ define('APP_APPS', APP_ROOT . 'apps/');
 define('APP_MODELS', APP_APPS . 'models/');
 define('APP_CONTROLS', APP_APPS . 'controllers/');
 define('APP_VIEWS', APP_APPS . 'views/');
+define('APP_MAIN', 'main.tpl');
+define('APP_CACHE', false);
+define('APP_DEBUG', false);
+define('APP_VIEWS_COMPILED', APP_VIEWS . '.smarty/.compiled/');
+define('APP_VIEWS_CACHE', APP_VIEWS . '.smarty/.cache/');
+
 
 define('APP_NAME', 'News');
 
@@ -30,7 +36,7 @@ if (isset($_SERVER['HTTP_HOST']))
 	define('APP_INCLUDES', APP_URI . 'includes/');
 }
 
-$PATHS = array(APP_LIB, APP_MODELS, APP_CONTROLS);
+$PATHS = array(APP_LIB, APP_MODELS, APP_LIB . 'Smarty/libs/');
 foreach ($PATHS as $PATH)
 {
 	set_include_path(get_include_path() . PATH_SEPARATOR . $PATH);
@@ -50,9 +56,9 @@ if (!function_exists('fileexists'))
 		$found = false;
 		foreach ($PATHS as $path)
 		{
-			if (!$found)
+			if ($found = file_exists($path . $file))
 			{
-				$found = file_exists($path . $file);
+				return $found;
 			}
 		}
 		
@@ -89,9 +95,9 @@ if (!function_exists('__autoload'))
 		{
 			require_once $class;
 		}
-		else
+		elseif (fileexists(str_replace('.php', '.class.php', $class)))
 		{
-			require_once str_replace('_', '/', $className) . '.class.php';
+			require_once str_replace('.php', '.class.php', $class);
 		}
 	}
 }
