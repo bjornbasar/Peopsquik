@@ -1,16 +1,10 @@
 <?php
 
-$news_id = @$PARAMS[0];
+if (!$this->acl->isSignedIn())
+{
+	$this->forward('index');
+}
 
 $newsObj = new News();
 
-if ($news_id)
-{
-	$news = $newsObj->get($news_id);
-}
-else
-{
-	$news = $newsObj->getAll();
-}
-
-$this->assign('news', $news);
+$this->assign('news', $newsObj->getAll());

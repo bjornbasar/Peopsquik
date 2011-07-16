@@ -11,6 +11,8 @@ define('APP_MODELS', APP_APPS . 'models/');
 define('APP_CONTROLS', APP_APPS . 'controllers/');
 define('APP_VIEWS', APP_APPS . 'views/');
 
+define('APP_NAME', 'News');
+
 define('APP_TITLE', 'News Service');
 
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')

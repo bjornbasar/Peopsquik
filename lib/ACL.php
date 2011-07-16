@@ -1,5 +1,5 @@
 <?
-class Core_ACL
+class ACL
 {
 
 	protected $_permissions;
@@ -12,13 +12,13 @@ class Core_ACL
      */
 	public function __construct()
 	{
-		$this->_db = new Core_DB();
+		$this->_db = new DB();
 	}
 
 	public function authenticate($username, $password)
 	{
-		$query = "select * from `auth_users` where `username` = ? and `password` = ? and `status` = ?";
-		$result = $this->_db->getRow($query, array($username, $password, 1));
+		$query = "select * from `users` where `username` = ? and `userpassword` = ?";
+		$result = $this->_db->getRow($query, array($username, $password));
 
 		if (count($result) < 1)
 		{
@@ -33,8 +33,6 @@ class Core_ACL
 		Helper::updateSession('user', $result);
 		$this->_user = $result;
 
-		// get permissions
-		$this->getPermissions($result['auth_roleid']);
 		return true;
 	}
 
@@ -51,6 +49,11 @@ class Core_ACL
 			return true;
 		}
 		return false;
+	}
+	
+	public function getUser()
+	{
+		return Helper::getSession('user');
 	}
 
 	public function __destruct()

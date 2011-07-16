@@ -11,6 +11,8 @@
 
 			<div id="content">
 
+				<?php include 'header.tpl'?>
+
 				<div id="main">
 
 				 	<?php include $view['body']?>

@@ -19,6 +19,8 @@ $module = array_shift($PARAMS);
 $parameters['module'] = str_replace('_', '/', $module) . '.php';
 $parameters['template'] = str_replace('_', '/', $module) . '.tpl';
 
+session_start();
+
 if (stripos($module, '.do') !== false)
 {
 	$parameters['module'] = 'actions/' . str_replace('.do', '.action', $parameters['module']);

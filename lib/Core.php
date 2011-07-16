@@ -9,7 +9,7 @@ class Core
 	public function __construct($params)
 	{
 		$this->_parameters = $params;
-		$this->acl = '';
+		$this->acl = new ACL();
 
 		global $PARAMS;
 		require APP_CONTROLS . $this->_parameters['module'];

@@ -56,6 +56,12 @@ class TableBase
 		return array();
 	}
 	
+	public function delete($id)
+	{
+		$query = 'DELETE FROM ' . $this->table . ' WHERE ' . $this->primary . ' = ?';
+		return $this->db->execute($query,array($id)); 
+	}
+
 	public function update($data)
 	{
 		if (isset($data[$this->primary]) && $data[$this->primary])
