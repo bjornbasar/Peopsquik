@@ -4,7 +4,7 @@
  * Database configurations
  */
 
-$db['user'] = 'newsuser';
-$db['pass'] = 'newsuser';
-$db['name'] = 'newsservice';
+$db['user'] = 'root';
+$db['pass'] = 'flaviu08';
+$db['name'] = '';
 $db['host'] = 'localhost';

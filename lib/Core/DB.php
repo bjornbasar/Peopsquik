@@ -17,17 +17,17 @@ class Core_DB
 
         $this->_conf = $db;
         
-        $this->_db = mysql_connect($db['host'], $db['user'], $db['pass']);
+        $this->_db = new mysqli($db['host'], $db['user'], $db['pass'], $db['name']);
         
-        mysql_select_db($db['name'], $this->_db);
+        //mysqli_select_db($db['name'], $this->_db);
     }
 
     private function _convertResult($result)
     {
-        if (mysql_affected_rows() > 0)
+        if ($this->_db->affected_rows > 0)
         {
             $rs = array();
-            while ($data = mysql_fetch_assoc($result))
+            while ($data = $result->fetch_assoc())
             {
                 $rs[] = $data;
             }
@@ -41,7 +41,7 @@ class Core_DB
     private function _execute($query, $returndata = true)
     {
         //		$result = mysql_query($query, $this->_db) or die(mysql_error($this->_db) . "<br/>\nyour query: <b>". $query . "</b>");
-        $result = mysql_query($query) or trigger_error(mysql_error($this->_db) . "<br/>\nyour query: <b>". $query . '</b>', E_USER_ERROR);
+        $result = $this->_db->query($query) or trigger_error($this->_db->error . "<br/>\nyour query: <b>". $query . '</b>', E_USER_ERROR);
 
         if($returndata)
         {
@@ -147,15 +147,15 @@ class Core_DB
 
         if (is_null($index))
         {
-            return mysql_insert_id();
+            return mysqli_insert_id();
         }
     }
 
     public function tryQuery($query)
     {
-    	mysql_query($query);
+    	$this->_db->query($query);
 
-    	if (mysql_errno() === 0)
+    	if (mysqli_errno() === 0)
     	{
     		return true;
     	}
@@ -168,6 +168,7 @@ class Core_DB
 	 */
     public function __destruct()
     {
+    	$this->_db->close();
         unset($this->_db);
         unset($this->dataset);
     }

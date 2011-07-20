@@ -1,7 +1,7 @@
 @echo off
-md application\views\.smarty\.compiled
-md application\views\.smarty\.cache
+md apps\views\.smarty\.compiled
+md apps\views\.smarty\.cache
 md log
 md uploads
-del application\views\.smarty\.compiled\*
-del application\views\.smarty\.cache\*
+del apps\views\.smarty\.compiled\*
+del apps\views\.smarty\.cache\*
