@@ -9,11 +9,11 @@ class Core_Helper
 			{
 				if (is_array($value))
 				{
-					$data[$key] = Core_Helper::sanitizeAll($value);
+					$data[$key] = Core_Helper::sanitize($value);
 				}
 				else
 				{
-					$data[$key] = addslashes(urlencode($value));
+					$data[$key] = addslashes(urlencode(htmlentities($value)));
 				}
 			}
 
@@ -38,7 +38,7 @@ class Core_Helper
 				}
 				else
 				{
-					$data[$key] = urldecode(stripslashes($value));
+					$data[$key] = html_entity_decode(urldecode(stripslashes($value)));
 				}
 			}
 

@@ -17,15 +17,7 @@ class Core_Peopsquik
 			$this->_template->template_dir = APP_VIEWS;
 			$this->_template->compile_dir = APP_VIEWS_COMPILED;
 			$this->_template->cache_dir = APP_VIEWS_CACHE;
-			
-			if (isset($this->_parameters['title']))
-			{
-				$this->assign('TEMPLATE_TITLE', APP_NAME . ' - ' . $this->_parameters['title']);
-			}
-			else
-			{
-				$this->assign('TEMPLATE_TITLE', APP_NAME);
-			}
+			$this->assign('TEMPLATE_TITLE', APP_NAME);
 			
 			//$this->_setDisplayType($parameters['displaytype']);
 		}
