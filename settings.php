@@ -16,10 +16,9 @@ define('APP_DEBUG', false);
 define('APP_VIEWS_COMPILED', APP_VIEWS . '.smarty/.compiled/');
 define('APP_VIEWS_CACHE', APP_VIEWS . '.smarty/.cache/');
 
+define('APP_NAME', 'IsTrBuddy');
 
-define('APP_NAME', 'News');
-
-define('APP_TITLE', 'News Service');
+define('APP_TITLE', 'Issue Trackng Buddy');
 
 if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on')
 {
@@ -43,6 +42,8 @@ foreach ($PATHS as $PATH)
 }
 
 error_reporting(E_ALL);
+
+date_default_timezone_set("Asia/Manila");
 
 /**
  * Custom global functions

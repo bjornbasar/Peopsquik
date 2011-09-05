@@ -31,7 +31,7 @@ class Core_Peopsquik
 	{
 		if ($this->acl->isSignedIn())
 		{
-			$this->_template->assign('admin', 1);
+			$this->_template->assign('loggedIn', 1);
 		}
 		
 		if (isset($this->_parameters['body']))

@@ -16,8 +16,8 @@ else
 }
 
 $module = array_shift($PARAMS);
-$moduleBasePath = str_replace('_', '/', $module) . '.php';
-$templateBasePath = str_replace('_', '/', $module) . '.tpl';
+$moduleBasePath = str_replace('-', '/', $module) . '.php';
+$templateBasePath = str_replace('-', '/', $module) . '.tpl';
 
 session_start();
 
