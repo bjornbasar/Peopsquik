@@ -21,21 +21,34 @@ $templateBasePath = str_replace('-', '/', $module) . '.tpl';
 
 session_start();
 
-if (stripos($module, '.do') !== false)
+// Get the module name and parameters - end
+// parse the modules.ini file
+$modules = parse_ini_file(APP_LIB . 'modules.ini', true);
+
+if (isset($modules[$module]))
 {
-	$parameters['module'] = 'actions/' . str_replace('.do', '.action', $moduleBasePath);
-	$parameters['allowdisplay'] = false;
+        $parameters = $modules[$module];
+        $parameters['allowdisplay'] = true;
+        $isDefault = false;
 }
 else 
 {
-	$parameters['module'] = 'main/' . $moduleBasePath;
-	$parameters['allowdisplay'] = true;
-	$parameters['template'] = 'main' . $templateBasePath;
-	
-	if (stripos($templateBasePath, 'partial') === false)
+	if (stripos($module, '.do') !== false)
 	{
-		$parameters['body'] = 'main/' . $templateBasePath;
-		$parameters['template'] = APP_MAIN;
+		$parameters['module'] = 'actions/' . str_replace('.do', '.action', $moduleBasePath);
+		$parameters['allowdisplay'] = false;
+	}
+	else 
+	{
+		$parameters['module'] = 'main/' . $moduleBasePath;
+		$parameters['allowdisplay'] = true;
+		$parameters['template'] = 'main/' . $templateBasePath;
+		
+		if (stripos($templateBasePath, 'partial') === false)
+		{
+			$parameters['body'] = 'main/' . $templateBasePath;
+			$parameters['template'] = APP_MAIN;
+		}
 	}
 }
 

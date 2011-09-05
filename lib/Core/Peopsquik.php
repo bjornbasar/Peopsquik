@@ -58,4 +58,9 @@ class Core_Peopsquik
 			header('Location: ' . $url);
 		}
 	}
+	
+	public function checkACL()
+	{
+		return $this->acl->isSignedIn();
+	}
 }
