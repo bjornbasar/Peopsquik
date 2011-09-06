@@ -1,5 +1,11 @@
 @CHARSET "UTF-8";
 
+body
+{
+	font-family: 'Arial';
+	font-size: 12px;
+}
+
 #loginBox
 {
 	width: 250px;
@@ -25,6 +31,16 @@
 #loginBox h2 img
 {
 	width: 250px;
+}
+
+#loginBox form p
+{
+	text-align: right;
+}
+
+#loginBox form label
+{
+	cursor: pointer;
 }
 
 #loginBox .submit

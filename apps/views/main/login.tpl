@@ -31,6 +31,14 @@
 				<button class="submit" onclick="$('loginform').submit();">Sign In<br></button>
 			
 			</div>  <!-- end #button -->
+			<script type="text/javascript">
+				{literal}
+				window.addEvent('domready', function()
+				{
+					mooCenter($('loginBox'));
+				});
+				{/literal}
+            </script>
 
 		</div><!-- end #loginBox -->
 	</body>
