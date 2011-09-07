@@ -63,4 +63,9 @@ class Core_Peopsquik
 	{
 		return $this->acl->isSignedIn();
 	}
+	
+	public function authenticate($user, $pass)
+	{
+		return $this->acl->authenticate($user, $pass);
+	}
 }

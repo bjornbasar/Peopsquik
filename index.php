@@ -12,7 +12,7 @@ if (!empty($_SERVER['REDIRECT_MODULE']))
 }
 else
 {
-	$PARAMS = array('index');
+	$PARAMS = array('config');
 }
 
 $module = array_shift($PARAMS);

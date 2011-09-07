@@ -1,12 +1,13 @@
 <?php
 
 /**
- * Site settings
+ * Framework settings
  */
 
 define('APP_ROOT', dirname(__FILE__) . '/');
 define('APP_LIB', APP_ROOT . 'lib/');
 define('APP_APPS', APP_ROOT . 'apps/');
+define('APP_CONF', APP_ROOT . 'config/');
 define('APP_MODELS', APP_APPS . 'models/');
 define('APP_CONTROLS', APP_APPS . 'controllers/');
 define('APP_VIEWS', APP_APPS . 'views/');
@@ -62,7 +63,6 @@ if (!function_exists('fileexists'))
 				return $found;
 			}
 		}
-		
 		return $found;
 	}
 }

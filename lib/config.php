@@ -6,5 +6,5 @@
 
 $db['user'] = 'root';
 $db['pass'] = 'flaviu08';
-$db['name'] = '';
+$db['name'] = 'bjornbas_main';
 $db['host'] = 'localhost';
