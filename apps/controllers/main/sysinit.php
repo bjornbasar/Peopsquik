@@ -12,3 +12,4 @@ if (!is_writable(APP_CONF))
 }
 
 $this->assign('error', $error);
+$this->assign('modulename', 'System Install');

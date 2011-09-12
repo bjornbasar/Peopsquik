@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="{$smarty.const.APP_INCLUDES}js/mooCenter.js"></script>
     </head>
 	<body>
-		<div id="loginBox">
+		<div id="loginBox" class="centerbox">
 
 			<h2><img src="includes/logo4.png"></h2>
 
@@ -28,14 +28,14 @@
 
 			<div>
 
-				<button class="submit" onclick="$('loginform').submit();">Sign In<br></button>
+				<button class="submit" onclick="$('loginform').submit();">Sign In</button>
 			
 			</div>  <!-- end #button -->
 			<script type="text/javascript">
 				{literal}
 				window.addEvent('domready', function()
 				{
-					mooCenter($('loginBox'));
+					moo3Center($('loginBox'));
 				});
 				{/literal}
             </script>

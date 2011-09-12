@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+#dbinfo
+{
+	width: 250px;
+	background-color: tan;
+	border: 1px solid crimson;
+	-moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    border-radius: 10px;
+	padding: 5px;
+}

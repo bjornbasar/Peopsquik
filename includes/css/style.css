@@ -2,13 +2,13 @@
 
 body
 {
-	font-family: 'Arial';
+	font-family: 'Helvetica';
 	font-size: 12px;
+	background: url("../bg.jpg");
 }
 
-#loginBox
+div.centerbox
 {
-	width: 250px;
 	background-color: tan;
 	border: 1px solid crimson;
 	-moz-border-radius: 10px;
@@ -18,32 +18,43 @@ body
 	padding: 5px;
 }
 
-#loginBox h2
+#dbinfo
+{
+	width: 350px;
+	padding: 15px 5px 5px 5px;
+}
+
+#loginBox
+{
+	width: 300px;
+}
+
+#loginBox h2, #dbinfo h2
 {
 	margin: 0px;
-	font-size: 0;
+	font-size: 14px;
 	-webkit-margin-before: 0px;
 	-webkit-margin-after: 0px;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 }
 
-#loginBox h2 img
+#loginBox h2 img, #dbinfo h2 img
 {
-	width: 250px;
+	width: 300px;
 }
 
-#loginBox form p
+#loginBox form p, #dbinfo form p
 {
 	text-align: right;
 }
 
-#loginBox form label
+#loginBox form label, #dbinfo form label
 {
 	cursor: pointer;
 }
 
-#loginBox .submit
+#loginBox .submit, #dbinfo .submit
 {
 	color: white;
 	background: rgba(255, 48, 48, 0.5);
@@ -53,4 +64,29 @@ body
     -khtml-border-radius: 20px;
     border-radius: 20px;
 	float: right;
+}
+
+.error
+{
+	color: rgb(255, 48,48);
+}
+
+.clear
+{
+	height: 5px;
+}
+
+.separator
+{
+	border: 1px solid gray;
+}
+
+.verticalsep
+{
+	width: 0px;
+}
+
+.horizontalsep
+{
+	height: 0px;
 }
