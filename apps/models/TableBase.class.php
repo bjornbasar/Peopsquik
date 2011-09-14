@@ -24,6 +24,7 @@ class TableBase
 		{
 			$query .= ' order by ' . $this->order;
 		}
+		
 		return $this->db->getArray($query, array());
 	}
 

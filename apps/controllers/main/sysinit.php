@@ -1,8 +1,10 @@
 <?php
 
-function filePermissions($file)
+$checkUsers = new Users();
+
+if ($checkUsers->getAll())
 {
-	return substr(decoct(fileperms($file)), -3, 1) . '';
+	$this->forward('index');
 }
 
 $error = '';

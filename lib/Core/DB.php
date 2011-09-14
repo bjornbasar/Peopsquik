@@ -13,7 +13,7 @@ class Core_DB
 
     public function __construct()
     {
-        require APP_LIB . 'config.php';
+        require APP_CONF . 'config.php';
 
         $this->_conf = $db;
         

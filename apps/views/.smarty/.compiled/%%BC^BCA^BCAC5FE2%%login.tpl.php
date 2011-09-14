@@ -1,12 +1,19 @@
+<?php /* Smarty version 2.6.25, created on 2011-09-14 16:06:01
+         compiled from main/login.tpl */ ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-        <title>{$TEMPLATE_TITLE} - Login</title>
-        <base href="{$smarty.const.APP_URI}">
-        <link href="{$smarty.const.APP_INCLUDES}css/style.css" rel="stylesheet" type="text/css" media="screen" />
-        <script type="text/javascript" src="{$smarty.const.APP_INCLUDES}js/mootools.js"></script>
-		<script type="text/javascript" src="{$smarty.const.APP_INCLUDES}js/mooCenter.js"></script>
+        <title><?php echo $this->_tpl_vars['TEMPLATE_TITLE']; ?>
+ - Login</title>
+        <base href="<?php echo @APP_URI; ?>
+">
+        <link href="<?php echo @APP_INCLUDES; ?>
+css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <script type="text/javascript" src="<?php echo @APP_INCLUDES; ?>
+js/mootools.js"></script>
+		<script type="text/javascript" src="<?php echo @APP_INCLUDES; ?>
+js/mooCenter.js"></script>
     </head>
 	<body>
 		<div id="loginBox" class="centerbox">
@@ -32,12 +39,13 @@
 			
 			</div>  <!-- end #button -->
 			<script type="text/javascript">
-				{literal}
-				window.addEvent('domready', function()
+				<?php echo '
+				window.addEvent(\'domready\', function()
 				{
-					mooVCenter($('loginBox'));
+					mooVCenter($(\'loginBox\'));
 				});
-				{/literal}
+				'; ?>
+
             </script>
 
 		</div><!-- end #loginBox -->
