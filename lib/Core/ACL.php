@@ -17,7 +17,7 @@ class Core_ACL
 
 	public function authenticate($username, $password)
 	{
-		$query = "select * from `users` where `username` = ? and `userpassword` = ?";
+		$query = "select * from `users` where `username` = ? and `password` = ?";
 		$result = $this->_db->getRow($query, array($username, $password));
 
 		if (count($result) < 1)

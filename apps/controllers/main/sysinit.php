@@ -4,7 +4,7 @@ $checkUsers = new Users();
 
 if ($checkUsers->getAll())
 {
-	$this->forward('index');
+	$this->forward('home');
 }
 
 $error = '';
