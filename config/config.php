@@ -4,9 +4,9 @@
  * Database configurations
  */
 
-$db['user'] = 'austral';
-$db['pass'] = 'austral';
-$db['name'] = 'bjornbas_test';
-$db['host'] = 'localhost';
+$db['user'] = '';
+$db['pass'] = '';
+$db['name'] = '';
+$db['host'] = '';
 
 ?>
