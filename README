@@ -1,8 +1,8 @@
 Framework Peopsquik
 
-A fork of Chukwu Framework in http://svn.theredfla.me/svn/framework
+A framework based-off of Chukwu Framework in http://svn.theredfla.me/svn/framework
 
-This is a lesser version of the framework.
+A minified version, removing the bulk from the basic framework, and made it work with as little footprint as possible.
 
 The following were removed:
 most of Zend Library (unused from the original framework and/or has some workarounds to reduce the bloat)
